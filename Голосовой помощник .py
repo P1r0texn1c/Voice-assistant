@@ -10,7 +10,7 @@ sr.pause_threshold = 0.5
 
 commands_dict = {
     'commands': {
-        'greeting': ['привет', 'приветствую', 'добрый день', 'доброе утро', 'добрый вечер'],
+        'greeting_reply': ['привет', 'приветствую', 'добрый день', 'доброе утро', 'добрый вечер'],
         'create_task': ['добавить задачу', 'создать задачу', 'заметка', 'новая заметка', 'добавить заметку'],
         'play_music': ['включи музыку', 'дискотека'],
         'time': ['сколько сейчас время', 'время', 'сколько времени'],
@@ -34,14 +34,14 @@ def listen_command():
         return 'Извините, не понял что вы сказали'
 
 
-def greeting():
+def greeting_reply(query):
     """Greeting function"""
 
-    if greeting == 'добрый вечер':
+    if query == 'добрый вечер':
         return 'Добрый вечер'
-    elif greeting == 'добрый день':
+    elif query == 'добрый день':
         return 'Добрый день'
-    elif greeting == 'доброе утро':
+    elif query == 'доброе утро':
         return 'Доброе утро'
     else:
         return 'Привет' or 'Приветствую!'
@@ -92,7 +92,7 @@ def main():
     
     for k, v in commands_dict['commands'].items():
         if query in v:
-            print(globals()[k]())
+            print(globals()[k](query))
             break
        
 
