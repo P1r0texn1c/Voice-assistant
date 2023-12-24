@@ -93,6 +93,7 @@ def main():
     for k, v in commands_dict['commands'].items():
         if query in v:
             print(globals()[k]())
+            break
        
 
 if __name__ == '__main__':
