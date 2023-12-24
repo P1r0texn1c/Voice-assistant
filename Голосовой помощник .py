@@ -84,7 +84,7 @@ def wiki():
     query = listen_command()
     wikipedia.set_lang("ru")
 
-    print(wikipedia.search(query))
+    print(wikipedia.summary(query))
 
 
 def main():
