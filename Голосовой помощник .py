@@ -2,6 +2,7 @@ import os
 import random
 import speech_recognition
 import wikipedia
+import requests
 from datetime import datetime
 from playsound import playsound
 
@@ -15,7 +16,8 @@ commands_dict = {
         'play_music': ['включи музыку', 'музыка'],
         'time': ['сколько сейчас время', 'время', 'сколько времени'],
         'date': ['какое сегодня число', 'дата'],
-        'wiki': ['поиск', 'узнай']
+        'wiki': ['поиск', 'узнай'],
+        'weather':['погода', 'какая сейчас погода', 'температура за бортом']
     }
 }
 
@@ -85,6 +87,20 @@ def wiki():
     wikipedia.set_lang("ru")
 
     print(wikipedia.summary(query))
+
+def weather(query):
+
+    print('В каком городе?')
+
+    query = listen_command()
+    query = query.title()
+    url = 'https://api.openweathermap.org/data/2.5/weather?q='+query+'&units=metric&lang=ru&appid=79d1ca96933b0328e1c7e3e7a26cb347'
+    weather_data = requests.get(url).json()
+    temperature = round(weather_data['main']['temp'])
+    temperature_feels = round(weather_data['main']['feels_like'])
+
+    print('Сейчас в городе', query, str(temperature), '°C')
+    print('Ощущается как', str(temperature_feels), '°C')
 
 
 def main():
