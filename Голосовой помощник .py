@@ -37,17 +37,14 @@ def listen_command():
 
 
 def greeting_reply(query):
-    """Greeting function"""
 
-    if query == 'добрый вечер':
-        return 'Добрый вечер'
-    elif query == 'добрый день':
-        return 'Добрый день'
-    elif query == 'доброе утро':
-        return 'Доброе утро'
-    else:
-        greeting = random.choice(['Привет', 'Приветствую!'])
-        return greeting
+    greeting = {
+        'добрый вечер': 'Добрый вечер',
+        'добрый день': 'Добрый день',
+        'доброе утро': 'Доброе утро',
+        'привет': random.choice(['Привет', 'Приветствую!'])
+    }
+    return greeting.get(query)
     
 
 
