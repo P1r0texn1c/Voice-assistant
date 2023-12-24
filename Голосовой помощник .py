@@ -51,7 +51,7 @@ def greeting_reply(query):
     
 
 
-def create_task():
+def create_task(query):
     """Create a todo task"""
     
     print('Что добавим в список дел?' or 'Что добавим?')
