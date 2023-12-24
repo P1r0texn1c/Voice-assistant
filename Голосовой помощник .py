@@ -46,7 +46,8 @@ def greeting_reply(query):
     elif query == 'доброе утро':
         return 'Доброе утро'
     else:
-        return 'Привет' or 'Приветствую!'
+        greeting = random.choice(['Привет', 'Приветствую!'])
+        return greeting
     
 
 
