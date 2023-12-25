@@ -69,15 +69,15 @@ def play_music(query):
     playsound(random_file)
     
 
-def time():
+def time(query):
 
     return datetime.now().time()
 
-def date():
+def date(query):
     
     return datetime.now().date()
 
-def wiki():
+def wiki(query):
 
     print('Что нужно найти?')
 
