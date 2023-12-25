@@ -55,17 +55,17 @@ def create_task(query):
     
     query = listen_command()
         
-    with open('/home/bunny_hop/Рабочий стол/Программы/Голосовой помощник/todo_list.txt', 'a') as file:
+    with open('todo_list.txt', 'a') as file:
         file.write(f'❗️ {query}\n')
         
     return f'Задача {query} добавлена в todo-list!'
 
 
-def play_music():
+def play_music(query):
     """Play a random mp3 file"""
     
-    files = os.listdir('/home/bunny_hop/Рабочий стол/Программы/Голосовой помощник/music')
-    random_file = f'/home/bunny_hop/Рабочий стол/Программы/Голосовой помощник/music/{random.choice(files)}'
+    files = os.listdir('music')
+    random_file = f'music/{random.choice(files)}'
     playsound(random_file)
     
 
